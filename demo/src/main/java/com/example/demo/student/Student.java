@@ -1,4 +1,4 @@
-package student;
+package com.example.demo.student;
 
 import java.time.LocalDate;
 
@@ -9,6 +9,11 @@ public class Student {
     private LocalDate dob;
     private Integer age;
 
+    // Default constructor
+    public Student() {
+    }
+
+    // Parameterized constructor
     public Student(Long id, String name, String email, LocalDate dob, Integer age) {
         this.id = id;
         this.name = name;
@@ -17,8 +22,7 @@ public class Student {
         this.age = age;
     }
 
-    // Getters and Setters
-
+    // Getters and setters
     public Long getId() {
         return id;
     }
@@ -57,16 +61,5 @@ public class Student {
 
     public void setAge(Integer age) {
         this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", dob=" + dob +
-                ", age=" + age +
-                '}';
     }
 }
