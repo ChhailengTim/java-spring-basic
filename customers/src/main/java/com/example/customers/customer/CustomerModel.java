@@ -6,8 +6,14 @@ import jakarta.persistence.*;
 @Table
 public class CustomerModel {
 
-    @Id@SequenceGenerator(name = "customer_seq", sequenceName = "customer_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @SequenceGenerator(name = "customer_sequence",
+            sequenceName = "customer_sequence",
+            allocationSize = 1)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "customer_sequence"
+    )
     private Long id;
     private String name;
     private String email;
