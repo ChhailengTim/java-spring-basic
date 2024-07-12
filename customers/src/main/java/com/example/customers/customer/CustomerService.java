@@ -19,4 +19,8 @@ public class CustomerService {
     public List<CustomerModel> getCustomer(){
         return customerRepository.findAll();
     }
+
+    public void addNewCustomers(CustomerModel customer) {
+
+    }
 }

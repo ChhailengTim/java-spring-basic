@@ -1,9 +1,7 @@
 package com.example.customers.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +19,10 @@ public class CustomerController {
     @GetMapping()
     public List<CustomerModel> getCustomers(){
         return customerService.getCustomer();
+    }
+
+    @PostMapping()
+    public void addNewCustomer(@RequestBody CustomerModel customer){
+        customerService.addNewCustomers(customer);
     }
 }

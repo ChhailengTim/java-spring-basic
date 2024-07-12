@@ -9,7 +9,8 @@ public class CustomerModel {
     @Id
     @SequenceGenerator(name = "customer_sequence",
             sequenceName = "customer_sequence",
-            allocationSize = 1)
+            allocationSize = 1
+    )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "customer_sequence"
@@ -17,14 +18,14 @@ public class CustomerModel {
     private Long id;
     private String name;
     private String email;
-    private int age;
+    private Integer age;
 
     // No-argument constructor for JPA
     public CustomerModel() {
     }
 
     // Parameterized constructor for easy instantiation
-    public CustomerModel( String name, String email, int age) {
+    public CustomerModel( String name, String email, Integer age) {
         this.name = name;
         this.email = email;
         this.age = age;
@@ -54,11 +55,11 @@ public class CustomerModel {
         this.email = email;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
