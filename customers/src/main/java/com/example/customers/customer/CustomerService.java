@@ -2,9 +2,12 @@ package com.example.customers.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerService {
@@ -15,12 +18,24 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
-    @GetMapping()
     public List<CustomerModel> getCustomer(){
         return customerRepository.findAll();
     }
 
     public void addNewCustomers(CustomerModel customer) {
+        Optional<CustomerModel> customerOptional= customerRepository.findCustomerByEmail(customer.getEmail());
+        if(customerOptional.isPresent())
+        {
+            throw new IllegalStateException("email taken");
+        }
+        customerRepository.save(customer);
+    }
 
+    public void deleteCustomer(Long customerId) {
+        boolean exists = customerRepository.existsById(customerId);
+        if(!exists){
+            throw new IllegalStateException("Customer with Id" + customerId + "not exists");
+        }
+        customerRepository.deleteById(customerId);
     }
 }
