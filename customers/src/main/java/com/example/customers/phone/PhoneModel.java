@@ -1,17 +1,12 @@
 package com.example.customers.phone;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.SequenceGenerator;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class PhoneModel {
 
     @Id
-    @SequenceGenerator(
-            name = "phone_sequence",
+    @SequenceGenerator(name = "phone_sequence",
             sequenceName = "phone_sequence",
             allocationSize = 1
     )
